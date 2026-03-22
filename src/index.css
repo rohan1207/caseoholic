@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The Uniform Lab – premium palette */
+:root {
+  --page-bg: #fafaf9;
+  --background: var(--page-bg);
+  --foreground: #1c1917;
+  --color-navy: #0f172a;
+  --color-navy-light: #1e293b;
+  --color-slate: #334155;
+  --color-cream: var(--page-bg);
+  --color-cream-warm: #f5f5f4;
+  --color-accent: #b45309;
+  --color-accent-light: #ea580c;
+  --color-text: #1c1917;
+  --color-text-muted: #57534e;
+  --color-white: #ffffff;
+  --color-border: #e7e5e4;
+
+  /* Hero section – aligned with logo: blue + orange on white */
+  --hero-bg: #ffffff;
+  --hero-bg-end: #f8fafc;
+  --hero-heading: #0f172a;
+  --hero-blue: #1e40af;
+  --hero-muted: #64748b;
+  --hero-accent: #ea580c;
+  --hero-accent-soft: rgba(234, 88, 12, 0.1);
+}
+
+/* Hero – light gradient, clean like logo background */
+.hero-section {
+  background: linear-gradient(
+    180deg,
+    var(--hero-bg) 0%,
+    var(--hero-bg-end) 100%
+  ) !important;
+}
+
+/* Hero CTA – blue by default, white text; hover: text golden */
+.hero-cta {
+  background: var(--hero-blue);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+}
+.hero-cta:hover {
+  background: var(--hero-blue);
+  color: #eab308;
+  box-shadow: 0 6px 24px rgba(30, 64, 175, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: #fff !important;
+  color: var(--foreground);
+  font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 100%;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Ensure app root can grow so document scrolls */
+#root {
+  min-height: 100%;
+  display: block;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+.font-serif {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  50% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes wavy-flow {
+  from {
+    transform: translateY(-32px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-wavy-flow {
+  animation: wavy-flow 2.2s linear infinite;
+}
+
+@keyframes colorSplash {
+  0% {
+    background-position: 0% 50%;
+  }
+  33% {
+    background-position: 100% 50%;
+  }
+  66% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.uniformlab-heading-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #0f172a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.premium-cta-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.premium-cta-button:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.section-dark {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+.section-cream {
+  background: var(--color-cream-warm);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 100%;
+  height: auto;
+  min-height: 100%;
+  scroll-behavior: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

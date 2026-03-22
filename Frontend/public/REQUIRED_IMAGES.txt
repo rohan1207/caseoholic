@@ -1,0 +1,37 @@
+# Add these image files to this folder (Frontend/public/) before running npm run build.
+# Then upload the full "out" folder to Hostinger so images are included.
+
+# Hero (you said these work - keep them)
+homepage1.webp
+homepage2.webp
+homepage3.webp
+homepage1_phone.webp
+homepage2_phone.webp
+homepage3_phone.webp
+
+# Products (4 products x 3 images each)
+product1_1.webp
+product1_2.webp
+product1_3.webp
+product2_1.webp
+product2_2.webp
+product2_3.webp
+product3_1.webp
+product3_2.webp
+product3_3.webp
+product4_1.webp
+product4_2.webp
+product4_3.webp
+
+# People loved it (customer reviews)
+customer1.webp
+customer2.webp
+customer3.webp
+customer4.webp
+
+# Bento (if you uncomment BentoGrid later)
+bento1.webp
+bento2.webp
+bento3.webp
+bento4.webp
+bento5.webp
