@@ -2,107 +2,198 @@ export default function PrivacyPage() {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
         .legal-page {
-          padding-top: 80px;
-          padding-bottom: 80px;
-          background: #fafaf9;
-          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+          padding-top: 88px;
+          padding-bottom: 96px;
+          background: #fff;
+          font-family: 'Outfit', sans-serif;
+          color: #1a1816;
+          -webkit-font-smoothing: antialiased;
         }
+        @media (max-width: 767px) {
+          .legal-page { padding-top: 72px; padding-bottom: 64px; }
+        }
+
+        /* ── Thin top accent bar ── */
+        .legal-top-bar {
+          height: 1px;
+          background: rgba(0,0,0,0.07);
+          margin-bottom: 0;
+        }
+
+        /* ── Hero header block ── */
+        .legal-header {
+          border-bottom: 1px solid rgba(0,0,0,0.07);
+          padding: 56px 0 40px;
+          margin-bottom: 0;
+        }
+        @media (max-width: 767px) { .legal-header { padding: 40px 0 32px; } }
+
         .legal-inner {
-          max-width: 760px;
+          max-width: 720px;
           margin: 0 auto;
-          padding: 0 24px;
+          padding: 0 2rem;
         }
+        @media (max-width: 480px) { .legal-inner { padding: 0 1.25rem; } }
+
         .legal-eyebrow {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #a8a29e;
-          margin-bottom: 10px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 9.5px; font-weight: 600; letter-spacing: 0.22em;
+          text-transform: uppercase; color: #1a1816; opacity: 0.35;
+          display: block; margin-bottom: 12px;
         }
         .legal-title {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: clamp(2rem, 4vw, 2.8rem);
-          font-weight: 400;
-          color: #1c1917;
-          margin: 0 0 12px;
-          letter-spacing: -0.02em;
+          font-family: 'Outfit', sans-serif;
+          font-size: clamp(1.75rem, 4vw, 2.6rem);
+          font-weight: 700; color: #1a1816;
+          margin: 0 0 12px; letter-spacing: -0.025em; line-height: 1.1;
         }
         .legal-updated {
-          font-size: 12px;
-          color: #a8a29e;
-          margin-bottom: 28px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 13px; font-weight: 300;
+          color: #1a1816; opacity: 0.45; margin: 0;
+          line-height: 1.6;
+        }
+
+        /* ── Body ── */
+        .legal-body-wrap {
+          padding-top: 48px;
+        }
+        @media (max-width: 767px) { .legal-body-wrap { padding-top: 36px; } }
+
+        .legal-section {
+          margin-bottom: 36px;
+          padding-bottom: 36px;
+          border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .legal-section:last-child {
+          border-bottom: none;
+          margin-bottom: 0; padding-bottom: 0;
+        }
+
+        .legal-section-num {
+          font-family: 'Outfit', sans-serif;
+          font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
+          text-transform: uppercase; color: #1a1816; opacity: 0.25;
+          display: block; margin-bottom: 8px;
         }
         .legal-section-title {
-          font-size: 15px;
-          font-weight: 600;
-          color: #1c1917;
-          margin: 22px 0 8px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 15px; font-weight: 600;
+          color: #1a1816; margin: 0 0 12px; letter-spacing: -0.01em;
+          line-height: 1.3;
         }
         .legal-body {
-          font-size: 14px;
-          line-height: 1.8;
-          color: #57534e;
+          font-family: 'Outfit', sans-serif;
+          font-size: 14px; font-weight: 300;
+          line-height: 1.85; color: #1a1816; opacity: 0.65;
+          margin: 0;
+        }
+        .legal-body strong {
+          font-weight: 600; opacity: 1; color: #1a1816;
+        }
+        .legal-body br { display: block; margin-bottom: 4px; content: ""; }
+
+        /* Contact block */
+        .legal-contact {
+          background: #fafaf9;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 2px; padding: 20px 22px; margin-top: 12px;
+        }
+        .legal-contact p {
+          font-family: 'Outfit', sans-serif;
+          font-size: 13.5px; font-weight: 400;
+          color: #1a1816; opacity: 0.7;
+          line-height: 1.9; margin: 0;
+        }
+        .legal-contact strong {
+          font-weight: 600; opacity: 1;
         }
       `}</style>
 
       <main className="legal-page">
+        <div className="legal-top-bar" />
+
+        {/* Header */}
+        <div className="legal-header">
+          <div className="legal-inner">
+            <span className="legal-eyebrow">Legal</span>
+            <h1 className="legal-title">Privacy Policy</h1>
+            <p className="legal-updated">
+              This Privacy Policy explains how Caseoholic collects and uses your information.
+            </p>
+          </div>
+        </div>
+
+        {/* Body */}
         <div className="legal-inner">
-          <p className="legal-eyebrow">Legal</p>
-          <h1 className="legal-title">Privacy Policy</h1>
-          <p className="legal-updated">This Privacy Policy explains how Caseoholic collects and uses your information.</p>
+          <div className="legal-body-wrap">
 
-          <section className="legal-body">
-            <h2 className="legal-section-title">1. Information We Collect</h2>
-            <p>
-              We collect personal information such as your name, email address, shipping address, billing address,
-              and payment details when you place an order, create an account, or sign up for our newsletter.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">01</span>
+              <h2 className="legal-section-title">Information We Collect</h2>
+              <p className="legal-body">
+                We collect personal information such as your name, email address, shipping address, billing address, and payment details when you place an order, create an account, or sign up for our newsletter.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">2. How We Use Your Information</h2>
-            <p>
-              We use your information to process and fulfil your orders, communicate with you about your purchases,
-              send updates and promotional communications (where permitted), and improve our products, services,
-              and website experience.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">02</span>
+              <h2 className="legal-section-title">How We Use Your Information</h2>
+              <p className="legal-body">
+                We use your information to process and fulfil your orders, communicate with you about your purchases, send updates and promotional communications (where permitted), and improve our products, services, and website experience.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">3. Cookies</h2>
-            <p>
-              We use cookies and similar technologies to personalise content, remember your preferences, analyse
-              site traffic, and improve your browsing experience. You can control cookies through your browser
-              settings, but disabling them may impact certain site features.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">03</span>
+              <h2 className="legal-section-title">Cookies</h2>
+              <p className="legal-body">
+                We use cookies and similar technologies to personalise content, remember your preferences, analyse site traffic, and improve your browsing experience. You can control cookies through your browser settings, but disabling them may impact certain site features.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">4. Data Security</h2>
-            <p>
-              We take reasonable technical and organisational precautions to protect your personal information
-              from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission
-              over the internet is completely secure, and we cannot guarantee absolute security.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">04</span>
+              <h2 className="legal-section-title">Data Security</h2>
+              <p className="legal-body">
+                We take reasonable technical and organisational precautions to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">5. Changes to This Privacy Policy</h2>
-            <p>
-              We may update this Privacy Policy from time to time to reflect changes in our practices or applicable
-              laws. Any updates will be posted on this page, and your continued use of the website after such
-              changes constitutes acceptance of the revised policy.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">05</span>
+              <h2 className="legal-section-title">Changes to This Privacy Policy</h2>
+              <p className="legal-body">
+                We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. Any updates will be posted on this page, and your continued use of the website after such changes constitutes acceptance of the revised policy.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">6. Contact Information</h2>
-            <p>
-              Email: steloratech@gmail.com<br />
-              Phone: 94650&nbsp;00669<br />
-              Address: New Dashmesh Nagar, Jalandhar, Basti Guzan, Punjab&nbsp;&mdash;&nbsp;144002
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">06</span>
+              <h2 className="legal-section-title">Contact Information</h2>
+              <div className="legal-contact">
+                <p>
+                  <strong>Email:</strong> steloratech@gmail.com<br />
+                  <strong>Phone:</strong> 94650 00669<br />
+                  <strong>Address:</strong> New Dashmesh Nagar, Jalandhar, Basti Guzan, Punjab — 144002
+                </p>
+              </div>
+            </div>
 
-            <h2 className="legal-section-title">7. Ownership</h2>
-            <p>
-              Caseoholic is owned and operated by <strong>Vikram Bhagat</strong>.
-            </p>
-          </section>
+            <div className="legal-section">
+              <span className="legal-section-num">07</span>
+              <h2 className="legal-section-title">Ownership</h2>
+              <p className="legal-body">
+                Caseoholic is owned and operated by <strong>Vikram Bhagat</strong>.
+              </p>
+            </div>
+
+          </div>
         </div>
       </main>
     </>
   )
 }
-

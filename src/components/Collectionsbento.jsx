@@ -54,7 +54,7 @@ function BentoCard({ item, gridStyle }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image — shifts left and scales on hover */}
+      {/* Image */}
       <div
         style={{
           position: "absolute",
@@ -76,7 +76,7 @@ function BentoCard({ item, gridStyle }) {
         />
       </div>
 
-      {/* Text content — all at bottom */}
+      {/* Text content */}
       <div
         style={{
           position: "absolute",
@@ -90,23 +90,23 @@ function BentoCard({ item, gridStyle }) {
       >
         <h2
           style={{
-            color: item.textColor,
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            fontFamily: "'Barlow', sans-serif",
-            letterSpacing: "-0.025em",
-            lineHeight: 1.1,
-            textShadow: "0 1px 10px rgba(0,0,0,0.18)",
+            color: "#1a1816",
+            fontSize: "1.2rem",
+            fontWeight: 600,
+            fontFamily: "'Outfit', sans-serif",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.15,
+            textShadow: "0 1px 10px rgba(0,0,0,0.15)",
           }}
         >
           {item.label}
         </h2>
         <p
           style={{
-            color: item.accentColor,
-            fontSize: "0.66rem",
-            fontFamily: "'Barlow', sans-serif",
-            letterSpacing: "0.1em",
+            color: "#1a1816",
+            fontSize: "0.65rem",
+            fontFamily: "'Outfit', sans-serif",
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
             fontWeight: 600,
             marginTop: "5px",
@@ -120,9 +120,9 @@ function BentoCard({ item, gridStyle }) {
             display: "flex",
             alignItems: "center",
             gap: "7px",
-            color: item.accentColor,
-            fontSize: "0.68rem",
-            fontFamily: "'Barlow', sans-serif",
+            color: "#1a1816",
+            fontSize: "0.67rem",
+            fontFamily: "'Outfit', sans-serif",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             fontWeight: 700,
@@ -148,7 +148,7 @@ export default function CollectionsBento() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       `}</style>
 
@@ -160,7 +160,7 @@ export default function CollectionsBento() {
           justifyContent: "center",
           padding: "40px 16px",
           background: "white",
-          fontFamily: "'Barlow', sans-serif",
+          fontFamily: "'Outfit', sans-serif",
         }}
       >
         <div style={{ width: "100%", maxWidth: "1420px" }}>
@@ -177,11 +177,12 @@ export default function CollectionsBento() {
             <div>
               <p
                 style={{
-                  fontSize: "0.65rem",
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "0.6rem",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "#aaa",
-                  fontWeight: 500,
+                  color: "#1a1816",
+                  fontWeight: 600,
                   marginBottom: "6px",
                 }}
               >
@@ -189,10 +190,11 @@ export default function CollectionsBento() {
               </p>
               <h1
                 style={{
-                  fontSize: "clamp(1.8rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  color: "#0e0e0e",
-                  letterSpacing: "-0.045em",
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "clamp(1.75rem, 3.5vw, 2.6rem)",
+                  fontWeight: 700,
+                  color: "#1a1816",
+                  letterSpacing: "-0.02em",
                   lineHeight: 1,
                 }}
               >
@@ -201,27 +203,27 @@ export default function CollectionsBento() {
             </div>
             <button
               style={{
-                fontSize: "0.68rem",
-                letterSpacing: "0.14em",
+                fontFamily: "'Outfit', sans-serif",
+                fontSize: "0.67rem",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "#555",
+                color: "#1a1816",
                 fontWeight: 600,
                 background: "transparent",
-                border: "1px solid #d0ccc6",
+                border: "1px solid #d0ccc8",
                 padding: "9px 20px",
                 cursor: "pointer",
                 transition: "all 0.22s ease",
-                fontFamily: "'Barlow', sans-serif",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#0e0e0e";
+                e.currentTarget.style.background = "#1a1816";
                 e.currentTarget.style.color = "#fff";
-                e.currentTarget.style.borderColor = "#0e0e0e";
+                e.currentTarget.style.borderColor = "#1a1816";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#555";
-                e.currentTarget.style.borderColor = "#d0ccc6";
+                e.currentTarget.style.color = "#1a1816";
+                e.currentTarget.style.borderColor = "#d0ccc8";
               }}
             >
               View All
@@ -233,7 +235,7 @@ export default function CollectionsBento() {
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
-              gridTemplateRows: "390px 390px",
+              gridTemplateRows: "420px 420px",
               gap: 0,
             }}
           >

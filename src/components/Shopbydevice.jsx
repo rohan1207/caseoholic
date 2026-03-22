@@ -27,24 +27,29 @@ export default function ShopByDevice() {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
         .sbd-section {
           padding: 3.5rem 1rem 3rem;
           text-align: center;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Outfit', sans-serif;
         }
         .sbd-eyebrow {
+          font-family: 'Outfit', sans-serif;
           font-size: 10px;
-          letter-spacing: 0.28em;
+          font-weight: 600;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #9c9890;
+          color: #aaa8a5;
           margin: 0 0 0.4rem;
         }
         .sbd-title {
-          font-size: 12.5px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 13px;
           font-weight: 500;
-          letter-spacing: 0.22em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #1c1917;
+          color: #1a1816;
           margin: 0 0 2.75rem;
         }
         .sbd-row {
@@ -69,7 +74,7 @@ export default function ShopByDevice() {
           border: 1px solid rgba(0,0,0,0.08);
           overflow: hidden;
           transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-          background: white;
+          background: #fff;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -84,26 +89,31 @@ export default function ShopByDevice() {
           display: block;
         }
         .sbd-item:hover .sbd-circle {
-          border-color: rgba(0,0,0,0.2);
+          border-color: rgba(0,0,0,0.18);
           transform: translateY(-4px);
-          box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+          box-shadow: 0 10px 28px rgba(0,0,0,0.07);
         }
         .sbd-label {
-          font-size: 13px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 14px;
           font-weight: 500;
-          letter-spacing: 0.04em;
-          color: #1c1917;
+          letter-spacing: 0.02em;
+          color: #1a1816;
           margin: 0;
         }
         .sbd-sub {
-          font-size: 10.5px;
-          letter-spacing: 0.04em;
-          color: #9c9890;
+          font-family: 'Outfit', sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0.03em;
+          color: #aaa8a5;
           margin: -0.4rem 0 0;
         }
         @media (max-width: 600px) {
           .sbd-row { gap: 2rem; }
           .sbd-circle { width: 110px; height: 110px; padding: 12px; }
+          .sbd-label { font-size: 13px; }
+          .sbd-sub { font-size: 11px; }
         }
       `}</style>
 

@@ -2,115 +2,170 @@ export default function TermsPage() {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
         .legal-page {
-          padding-top: 80px;
-          padding-bottom: 80px;
-          background: #fafaf9;
-          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+          padding-top: 88px; padding-bottom: 96px;
+          background: #fff; font-family: 'Outfit', sans-serif;
+          color: #1a1816; -webkit-font-smoothing: antialiased;
         }
-        .legal-inner {
-          max-width: 760px;
-          margin: 0 auto;
-          padding: 0 24px;
+        @media (max-width: 767px) { .legal-page { padding-top: 72px; padding-bottom: 64px; } }
+
+        .legal-top-bar { height: 1px; background: rgba(0,0,0,0.07); }
+
+        .legal-header {
+          border-bottom: 1px solid rgba(0,0,0,0.07);
+          padding: 56px 0 40px;
         }
+        @media (max-width: 767px) { .legal-header { padding: 40px 0 32px; } }
+
+        .legal-inner { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+        @media (max-width: 480px) { .legal-inner { padding: 0 1.25rem; } }
+
         .legal-eyebrow {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #a8a29e;
-          margin-bottom: 10px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 9.5px; font-weight: 600; letter-spacing: 0.22em;
+          text-transform: uppercase; color: #1a1816; opacity: 0.35;
+          display: block; margin-bottom: 12px;
         }
         .legal-title {
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          font-size: clamp(2rem, 4vw, 2.8rem);
-          font-weight: 400;
-          color: #1c1917;
-          margin: 0 0 12px;
-          letter-spacing: -0.02em;
+          font-family: 'Outfit', sans-serif;
+          font-size: clamp(1.75rem, 4vw, 2.6rem);
+          font-weight: 700; color: #1a1816;
+          margin: 0 0 12px; letter-spacing: -0.025em; line-height: 1.1;
         }
         .legal-updated {
-          font-size: 12px;
-          color: #a8a29e;
-          margin-bottom: 28px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 13px; font-weight: 300;
+          color: #1a1816; opacity: 0.45; margin: 0; line-height: 1.6;
+        }
+
+        .legal-body-wrap { padding-top: 48px; }
+        @media (max-width: 767px) { .legal-body-wrap { padding-top: 36px; } }
+
+        .legal-section {
+          margin-bottom: 36px; padding-bottom: 36px;
+          border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .legal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .legal-section-num {
+          font-family: 'Outfit', sans-serif;
+          font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
+          text-transform: uppercase; color: #1a1816; opacity: 0.25;
+          display: block; margin-bottom: 8px;
         }
         .legal-section-title {
-          font-size: 15px;
-          font-weight: 600;
-          color: #1c1917;
-          margin: 22px 0 8px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 15px; font-weight: 600; color: #1a1816;
+          margin: 0 0 12px; letter-spacing: -0.01em; line-height: 1.3;
         }
         .legal-body {
-          font-size: 14px;
-          line-height: 1.8;
-          color: #57534e;
+          font-family: 'Outfit', sans-serif;
+          font-size: 14px; font-weight: 300;
+          line-height: 1.85; color: #1a1816; opacity: 0.65; margin: 0;
         }
+        .legal-body strong { font-weight: 600; color: #1a1816; }
+
+        .legal-contact {
+          background: #fafaf9; border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 2px; padding: 20px 22px; margin-top: 12px;
+        }
+        .legal-contact p {
+          font-family: 'Outfit', sans-serif;
+          font-size: 13.5px; font-weight: 400;
+          color: #1a1816; opacity: 0.7; line-height: 1.9; margin: 0;
+        }
+        .legal-contact strong { font-weight: 600; }
       `}</style>
 
       <main className="legal-page">
+        <div className="legal-top-bar" />
+
+        <div className="legal-header">
+          <div className="legal-inner">
+            <span className="legal-eyebrow">Legal</span>
+            <h1 className="legal-title">Terms &amp; Conditions</h1>
+            <p className="legal-updated">
+              By accessing or using caseoholic.in, you agree to the terms below.
+            </p>
+          </div>
+        </div>
+
         <div className="legal-inner">
-          <p className="legal-eyebrow">Legal</p>
-          <h1 className="legal-title">Terms and Conditions</h1>
-          <p className="legal-updated">By accessing or using caseoholic.in, you agree to the terms below.</p>
+          <div className="legal-body-wrap">
 
-          <section className="legal-body">
-            <h2 className="legal-section-title">1. Acceptance of Terms</h2>
-            <p>
-              By accessing or using the caseoholic.in website, you acknowledge that you have read, understood,
-              and agree to be bound by these Terms and Conditions and all applicable laws and regulations.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">01</span>
+              <h2 className="legal-section-title">Acceptance of Terms</h2>
+              <p className="legal-body">
+                By accessing or using the caseoholic.in website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions and all applicable laws and regulations.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">2. User Conduct</h2>
-            <p>
-              You agree not to engage in any activity that disrupts or interferes with the proper functioning of
-              the website or its services, including but not limited to attempting to gain unauthorized access,
-              introducing malicious code, or abusing any feature of the site.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">02</span>
+              <h2 className="legal-section-title">User Conduct</h2>
+              <p className="legal-body">
+                You agree not to engage in any activity that disrupts or interferes with the proper functioning of the website or its services, including but not limited to attempting to gain unauthorized access, introducing malicious code, or abusing any feature of the site.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">3. Intellectual Property</h2>
-            <p>
-              All content, trademarks, logos, graphics, and materials available on caseoholic.in are the property
-              of Caseoholic or its licensors and are protected by applicable intellectual property laws. You may
-              not reproduce, distribute, modify, or create derivative works from any content without prior written
-              consent.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">03</span>
+              <h2 className="legal-section-title">Intellectual Property</h2>
+              <p className="legal-body">
+                All content, trademarks, logos, graphics, and materials available on caseoholic.in are the property of Caseoholic or its licensors and are protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without prior written consent.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">4. Limitation of Liability</h2>
-            <p>
-              Caseoholic shall not be liable for any indirect, incidental, special, consequential, or punitive
-              damages arising out of or related to your access to or use of the website, including but not limited
-              to loss of data, loss of profits, or business interruption.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">04</span>
+              <h2 className="legal-section-title">Limitation of Liability</h2>
+              <p className="legal-body">
+                Caseoholic shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your access to or use of the website, including but not limited to loss of data, loss of profits, or business interruption.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">5. Indemnification</h2>
-            <p>
-              You agree to indemnify and hold Caseoholic, its owners, affiliates, employees, and agents harmless
-              from any claims, losses, liabilities, damages, costs, and expenses (including reasonable legal fees)
-              arising out of or relating to your use of the website or any violation of these Terms and Conditions.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">05</span>
+              <h2 className="legal-section-title">Indemnification</h2>
+              <p className="legal-body">
+                You agree to indemnify and hold Caseoholic, its owners, affiliates, employees, and agents harmless from any claims, losses, liabilities, damages, costs, and expenses (including reasonable legal fees) arising out of or relating to your use of the website or any violation of these Terms and Conditions.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">6. Governing Law</h2>
-            <p>
-              These Terms and Conditions shall be governed by and construed in accordance with the laws of India,
-              without regard to its conflict of law principles. Any disputes shall be subject to the exclusive
-              jurisdiction of the courts in Punjab, India.
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">06</span>
+              <h2 className="legal-section-title">Governing Law</h2>
+              <p className="legal-body">
+                These Terms and Conditions shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles. Any disputes shall be subject to the exclusive jurisdiction of the courts in Punjab, India.
+              </p>
+            </div>
 
-            <h2 className="legal-section-title">7. Contact Information</h2>
-            <p>
-              Email: steloratech@gmail.com<br />
-              Phone: 94650&nbsp;00669<br />
-              Address: New Dashmesh Nagar, Jalandhar, Basti Guzan, Punjab&nbsp;&mdash;&nbsp;144002
-            </p>
+            <div className="legal-section">
+              <span className="legal-section-num">07</span>
+              <h2 className="legal-section-title">Contact Information</h2>
+              <div className="legal-contact">
+                <p>
+                  <strong>Email:</strong> steloratech@gmail.com<br />
+                  <strong>Phone:</strong> 94650 00669<br />
+                  <strong>Address:</strong> New Dashmesh Nagar, Jalandhar, Basti Guzan, Punjab — 144002
+                </p>
+              </div>
+            </div>
 
-            <h2 className="legal-section-title">8. Ownership</h2>
-            <p>
-              Caseoholic is owned and operated by <strong>Vikram Bhagat</strong>.
-            </p>
-          </section>
+            <div className="legal-section">
+              <span className="legal-section-num">08</span>
+              <h2 className="legal-section-title">Ownership</h2>
+              <p className="legal-body">
+                Caseoholic is owned and operated by <strong>Vikram Bhagat</strong>.
+              </p>
+            </div>
+
+          </div>
         </div>
       </main>
     </>
   )
 }
-

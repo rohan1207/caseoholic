@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 
 // ── Update filenames to match your /public folder ─────────────────────────────
 const BRANDS = [
-  { label: 'Youngkit',   sub: 'Shop collection', href: '#',   img: '/youngkit.avif'   },
-  { label: 'Benks',      sub: 'Shop collection', href: '#',      img: '/benks.avif'      },
-  { label: 'Nimmy',      sub: 'Shop collection', href: '#',      img: '/nimmy.avif'      },
-  { label: 'Luxo Life',  sub: 'Shop collection', href: '#',  img: '/luxo.webp'   },
+  { label: 'Youngkit',  sub: 'Shop collection', href: '#', img: '/youngkit.avif' },
+  { label: 'Benks',     sub: 'Shop collection', href: '#', img: '/benks.avif'    },
+  { label: 'Nimmy',     sub: 'Shop collection', href: '#', img: '/nimmy.avif'    },
+  { label: 'Luxo Life', sub: 'Shop collection', href: '#', img: '/luxo.webp'     },
 ]
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -13,24 +13,29 @@ export default function ShopByBrand() {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
         .sbb-section {
           padding: 3.5rem 1rem 3rem;
           text-align: center;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'Outfit', sans-serif;
         }
         .sbb-eyebrow {
+          font-family: 'Outfit', sans-serif;
           font-size: 10px;
-          letter-spacing: 0.28em;
+          font-weight: 600;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #9c9890;
+          color: #1a1816;
           margin: 0 0 0.4rem;
         }
         .sbb-title {
-          font-size: 12.5px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 13px;
           font-weight: 500;
-          letter-spacing: 0.22em;
+          letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #1c1917;
+          color: #1a1816;
           margin: 0 0 2.75rem;
         }
         .sbb-row {
@@ -65,26 +70,41 @@ export default function ShopByBrand() {
           display: block;
         }
         .sbb-item:hover .sbb-circle {
-          border-color: rgba(0,0,0,0.2);
+          border-color: rgba(0,0,0,0.18);
           transform: translateY(-4px);
-          box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+          box-shadow: 0 10px 28px rgba(0,0,0,0.07);
         }
         .sbb-label {
-          font-size: 13px;
+          font-family: 'Outfit', sans-serif;
+          font-size: 14px;
           font-weight: 500;
-          letter-spacing: 0.04em;
-          color: #1c1917;
+          letter-spacing: 0.02em;
+          color: #1a1816;
           margin: 0;
         }
         .sbb-sub {
-          font-size: 10.5px;
-          letter-spacing: 0.04em;
-          color: #9c9890;
+          font-family: 'Outfit', sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0.03em;
+          color: #1a1816;
           margin: -0.4rem 0 0;
         }
+
+        /* Tablet */
         @media (max-width: 700px) {
           .sbb-row { gap: 2rem; }
           .sbb-circle { width: 104px; height: 104px; }
+          .sbb-label { font-size: 13px; }
+          .sbb-sub { font-size: 11px; }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+          .sbb-section { padding: 2.5rem 1rem 2rem; }
+          .sbb-row { gap: 1.25rem; }
+          .sbb-circle { width: 88px; height: 88px; }
+          .sbb-title { margin-bottom: 2rem; }
         }
       `}</style>
 
