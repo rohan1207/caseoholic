@@ -1,7 +1,13 @@
 import { useState, useCallback } from "react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 
-const categories = ["Phone Cases", "AirPods Cases", "Watch Bands", "Magsafe "];
+/** Keys must match `products` object. Labels are what users see (last tab = MagSafe wallets). */
+const BESTSELLER_TABS = [
+  { key: "Phone Cases", label: "Phone Cases" },
+  { key: "AirPods Cases", label: "AirPods Cases" },
+  { key: "Watch Bands", label: "Watch Bands" },
+  { key: "Phone Wallets", label: "MagSafe" },
+];
 
 const products = {
   "Phone Cases": [
@@ -335,12 +341,12 @@ function ProductCard({
 }
 
 export default function Bestseller() {
-  const [activeTab, setActiveTab] = useState("Phone Cases");
+  const [activeTab, setActiveTab] = useState(BESTSELLER_TABS[0].key);
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const [added, setAdded] = useState({});
   const [cursorAdded, setCursorAdded] = useState(false);
 
-  const visible = products[activeTab];
+  const visible = products[activeTab] ?? [];
 
   const onMouseMove = useCallback(
     (e) => setCursor((p) => ({ ...p, x: e.clientX, y: e.clientY })),
@@ -470,15 +476,16 @@ export default function Bestseller() {
             overflowX: "auto",
           }}
         >
-          {categories.map((cat) => (
+          {BESTSELLER_TABS.map(({ key, label }) => (
             <button
-              key={cat}
-              onClick={() => setActiveTab(cat)}
+              key={key}
+              type="button"
+              onClick={() => setActiveTab(key)}
               style={{
                 background: "none",
                 border: "none",
                 borderBottom:
-                  activeTab === cat
+                  activeTab === key
                     ? "1px solid #0e0e0e"
                     : "1px solid transparent",
                 marginBottom: "-0.5px",
@@ -489,12 +496,12 @@ export default function Bestseller() {
                 textTransform: "uppercase",
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 400,
-                color: activeTab === cat ? "#0e0e0e" : "#bbb",
+                color: activeTab === key ? "#0e0e0e" : "#bbb",
                 transition: "color 0.25s ease",
                 whiteSpace: "nowrap",
               }}
             >
-              {cat}
+              {label}
             </button>
           ))}
         </div>
