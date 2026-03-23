@@ -53,7 +53,7 @@ const TickIcon = () => (
 
 // ── ProductCard ───────────────────────────────────────────────────────────────
 
-function ProductCard({ product, index, onCardEnter, onCardLeave, onAdd, added, cursorVisible }) {
+function ProductCard({ product, index, onAdd, added }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -62,9 +62,9 @@ function ProductCard({ product, index, onCardEnter, onCardLeave, onAdd, added, c
       variants={fadeUp}
       initial="hidden"
       animate="visible"
-      style={{ position: "relative", cursor: cursorVisible ? "none" : "auto" }}
-      onMouseEnter={(e) => { setHovered(true); onCardEnter(e); }}
-      onMouseLeave={(e) => { setHovered(false); onCardLeave(e); }}
+      style={{ position: "relative", cursor: "auto" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <Link to={`/products/${product.slug}`} style={{ display: "block", textDecoration: "none" }}>
         {/* Image wrapper */}
@@ -117,25 +117,24 @@ function ProductCard({ product, index, onCardEnter, onCardLeave, onAdd, added, c
             </span>
           </div>
 
-          {/* Bag button — hides on hover desktop, always visible mobile */}
-          <motion.button
+          {/* Bag button — always visible; explicit click adds to cart */}
+          <button
+            type="button"
             className="acc-bag-btn"
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); onAdd(product.id); }}
-            animate={{ opacity: hovered ? 0 : 1, scale: hovered ? 0.4 : 1, y: hovered ? 10 : 0 }}
-            transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: "absolute", bottom: 12, right: 12,
               width: 44, height: 44, borderRadius: "50%",
               background: added ? "#2a7a4a" : "#1a1816",
               border: "none", display: "flex", alignItems: "center", justifyContent: "center",
               cursor: "pointer",
-              pointerEvents: hovered ? "none" : "auto",
+              pointerEvents: "auto",
               transition: "background 0.3s ease",
               zIndex: 10,
             }}
           >
             {added ? <TickIcon /> : <BagIcon />}
-          </motion.button>
+          </button>
         </div>
 
         {/* Caption */}
@@ -188,20 +187,12 @@ export default function AirpodsCasesCollection() {
   const gridRef = useRef(null);
   const inView = useInView(gridRef, { once: true, margin: "-80px" });
 
-  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const [added, setAdded] = useState({});
-  const [cursorAdded, setCursorAdded] = useState(false);
-
-  const onMouseMove = useCallback((e) => setCursor((p) => ({ ...p, x: e.clientX, y: e.clientY })), []);
-  const onCardEnter = useCallback((e) => setCursor({ x: e.clientX, y: e.clientY, visible: true }), []);
-  const onCardLeave = useCallback(() => setCursor((p) => ({ ...p, visible: false })), []);
 
   const handleAdd = useCallback((id) => {
     setAdded((prev) => ({ ...prev, [id]: true }));
-    setCursorAdded(true);
     setTimeout(() => {
       setAdded((prev) => ({ ...prev, [id]: false }));
-      setCursorAdded(false);
     }, 1800);
   }, []);
 
@@ -278,17 +269,12 @@ export default function AirpodsCasesCollection() {
         }
         .acc-viewall:hover { background: #1a1816; color: #fff; gap: 16px; }
 
-        /* ── Mobile: bag btn always visible, quickview + cursor hidden ── */
-        @media (max-width: 1024px) {
-          .acc-bag-btn {
-            opacity: 1 !important;
-            scale: 1 !important;
-            transform: none !important;
-            pointer-events: auto !important;
-          }
-          .acc-quickview { display: none !important; }
-          .acc-cursor { display: none !important; }
+        .acc-bag-btn {
+          opacity: 1 !important;
+          transform: none !important;
+          pointer-events: auto !important;
         }
+        .acc-quickview { display: none !important; }
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
@@ -314,29 +300,6 @@ export default function AirpodsCasesCollection() {
       `}</style>
 
       <div className="acc-root">
-
-        {/* ── Sticky cursor ── */}
-        <div
-          className="acc-cursor"
-          style={{
-            position: "fixed", top: 0, left: 0,
-            pointerEvents: "none", zIndex: 9999,
-            transform: `translate(${cursor.x}px, ${cursor.y}px) translate(-50%, -50%)`,
-          }}
-        >
-          <motion.div
-            animate={{ opacity: cursor.visible ? 1 : 0, scale: cursor.visible ? 1 : 0.3 }}
-            transition={{ duration: 0.22, ease: [0.19, 1, 0.22, 1] }}
-            style={{
-              width: 52, height: 52, borderRadius: "50%",
-              background: cursorAdded ? "#2a7a4a" : "#1a1816",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              transition: "background 0.3s ease",
-            }}
-          >
-            {cursorAdded ? <TickIcon /> : <BagIcon />}
-          </motion.div>
-        </div>
 
         {/* ── BANNER ── */}
         <div className="acc-banner">
@@ -389,8 +352,6 @@ export default function AirpodsCasesCollection() {
           <div
             className="acc-grid"
             ref={gridRef}
-            style={{ cursor: cursor.visible ? "none" : "auto" }}
-            onMouseMove={onMouseMove}
           >
             {PRODUCTS.map((product, i) =>
               inView ? (
@@ -398,11 +359,8 @@ export default function AirpodsCasesCollection() {
                   key={product.id}
                   product={product}
                   index={i}
-                  onCardEnter={onCardEnter}
-                  onCardLeave={onCardLeave}
                   onAdd={handleAdd}
                   added={!!added[product.id]}
-                  cursorVisible={cursor.visible}
                 />
               ) : (
                 <div key={product.id} style={{ aspectRatio: "3/4", background: "white", opacity: 0 }} />
